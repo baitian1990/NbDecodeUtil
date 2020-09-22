@@ -1,8 +1,12 @@
 # NbDecodeUtil
 解析base64编码的码流为对象，通过注解指定每个属性对应的字节
+
 1.用于解析和编码base64编码后的码流
+
 2.支持String,Date,Integer,Double,List,Object,Short六种数据类型,支持嵌套解析与嵌套编码。解码自动cs校验，校验失败抛出RuntimeException.编码自动生成数据长度与cs校验码（如果用于编码的bean中有长度，并且长度不正确，麻烦在编码时设置为null，不然会补0）
+
 3.解析，传入base64编码后的字符串和需要生成的对象的class
+
 ```
  public static <T> T decode(String data, Class<T> tClass) throws IllegalAccessException, InstantiationException, NoSuchFieldException, ParseException {
         if (data == null || "".equals(data.trim())) return null;
